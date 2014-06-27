@@ -1,16 +1,20 @@
 <html ng-app>
-  <body ng-controller="appController">
-    <p>{{someText}}</p>
+  <body ng-controller='appController'>
+    <input ng-model='num'>
+    <p>{{num}}</p>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js">
     </script>
     <script>
-      var module = angular.module('examResultApp',[]);
-      module.controller('appController',function($scope){
-        var scores 
-      });
-      function TextController($scope) {
-        $scope.someText = 'You have started your journey.';
-      }
+      
+      function appController($scope){
+        $scope.num = 0;
+        $scope.$watch('num',function(newVal,old,scope){
+          console.log("New: "+newVal);
+          console.log("old: "+old);
+        },true);
+        
+      };
+      
     </script>
   </body>
 </html>
